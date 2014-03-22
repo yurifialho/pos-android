@@ -58,9 +58,9 @@ public class ExtratoAdpter extends BaseAdapter{
 		}
 		
 		obj.txDescricao.setText(lancamento.getTipoLancamento());
-		obj.txLancamento.setText(lancamento.getValue().toString());
+		obj.txLancamento.setText("R$ " + lancamento.getValue().toString());
 		if(lancamento.getIsReceita()) {
-			obj.txLancamento.setTextColor(Color.GREEN);
+			obj.txLancamento.setTextColor(Color.BLUE);
 		} else {
 			obj.txLancamento.setTextColor(Color.RED);
 		}

@@ -1,11 +1,20 @@
 package br.edu.fa7.projeto10;
 
-public class Lancamento {
+import java.io.Serializable;
+
+public class Lancamento implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private Long id;
 	private String tipoLancamento;
 	private Double value;
 	private Boolean isReceita;
+	
+	public Lancamento(Long id, Double value, Boolean isReceita, String tipoLancamento) {
+		this(value, isReceita, tipoLancamento);
+		this.id = id;
+	}
 	
 	public Lancamento(Double value, Boolean isReceita, String tipoLancamento) {
 		this.value = value;

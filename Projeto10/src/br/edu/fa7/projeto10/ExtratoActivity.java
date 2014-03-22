@@ -20,6 +20,8 @@ import android.widget.TextView;
 
 public class ExtratoActivity extends Activity implements OnItemClickListener, OnItemLongClickListener {
 	
+	private final int ENTRY_ADD = 1;
+	
 	private ListView extratoListView;
 	private TextView saldo;
 	
@@ -30,8 +32,7 @@ public class ExtratoActivity extends Activity implements OnItemClickListener, On
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_extrato);
 		
-		this.lancamentos.add(new Lancamento(11.3, true, "Venda"));
-		this.lancamentos.add(new Lancamento(20.3, false, "Comida"));
+		this.lancamentos = new LancamentoDB(this).findAll();
 		
 		this.extratoListView = (ListView) findViewById(R.id.extratoview);
 		this.extratoListView.setAdapter(new ExtratoAdpter(this, lancamentos));
@@ -51,16 +52,14 @@ public class ExtratoActivity extends Activity implements OnItemClickListener, On
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode == 0 && resultCode == RESULT_OK) {
-			if(data.getStringExtra("op").equals("add")) {
-				//data.getSerializableExtra("xpto")
-				Lancamento l = new Lancamento(Double.valueOf(data.getStringExtra("valor")), data.getStringExtra("tipo").equals("1"), data.getStringExtra("descricao"));
+		if(requestCode == ENTRY_ADD && resultCode == RESULT_OK) {
+			if(data.getIntExtra("index", -1) < 0) {
+				Lancamento l = (Lancamento) data.getSerializableExtra("lancamento");
 				this.lancamentos.add(l);
 			} else {
-				Lancamento l = this.lancamentos.get(data.getIntExtra("index",0));
-					l.setValue(Double.valueOf(data.getStringExtra("valor")));
-					l.setIsReceita(data.getStringExtra("tipo").equals("1"));
-					l.setTipoLancamento(data.getStringExtra("descricao"));
+				this.lancamentos.remove(data.getIntExtra("index", -1));
+				Lancamento l = (Lancamento) data.getSerializableExtra("lancamento");
+				this.lancamentos.add(data.getIntExtra("index", -1),l);
 			}
 			this.extratoListView.setAdapter(new ExtratoAdpter(this, lancamentos));
 			calcularSaldo();
@@ -71,13 +70,10 @@ public class ExtratoActivity extends Activity implements OnItemClickListener, On
 	public void onItemClick(AdapterView<?> arg0, View view, int pos, long id) {
 		Lancamento l = this.lancamentos.get(pos);
 		Intent i = new Intent(this, ManterLancamentoActivity.class);
-			i.putExtra("op", "edit");
+			i.putExtra("lancamento", l);
 			i.putExtra("index", pos);
-			i.putExtra("valor", l.getValue().toString());
-			i.putExtra("tipo", l.getIsReceita() ? "1" : "2" );
-			i.putExtra("descricao", l.getTipoLancamento());
-			
-		startActivityForResult(i, 0);
+
+		startActivityForResult(i, ENTRY_ADD);
 	}
 	
 	@Override
@@ -85,8 +81,8 @@ public class ExtratoActivity extends Activity implements OnItemClickListener, On
 		switch (item.getItemId()) {
 		case R.id.add:
 			Intent i = new Intent(this, ManterLancamentoActivity.class);
-			i.putExtra("op", "add");
-		startActivityForResult(i, 0);
+				i.putExtra("index", -1);
+			startActivityForResult(i, ENTRY_ADD);
 			break;
 
 		default:
@@ -111,6 +107,7 @@ public class ExtratoActivity extends Activity implements OnItemClickListener, On
 	@Override
 	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2,
 			long arg3) {
+		new LancamentoDB(this).delete(this.lancamentos.get(arg2));
 		this.lancamentos.remove(arg2);
 		this.extratoListView.setAdapter(new ExtratoAdpter(this, lancamentos));
 		calcularSaldo();

@@ -1,23 +1,23 @@
 package br.edu.fa7.projeto10;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Menu;
 
 public class MainActivity extends Activity {
-
+	
+	private static final int SPLAH_KEY = 1;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//getHandler().sendEmptyMessageDelayed(1, 3000);
+		getHandler().sendEmptyMessageDelayed(SPLAH_KEY, 3000);
 		getActionBar().hide();
-		new Thread(new SplashHandler(getHandler())).start();
+		//new Thread(new SplashHandler(getHandler())).start();
 	}
 
 	@Override
@@ -31,16 +31,8 @@ public class MainActivity extends Activity {
 		Handler handler = new Handler(){
 			@Override
 			public void handleMessage(Message msg) {
-				Log.i("Infoooooo", "valor what" + msg.what);
-				switch (msg.what) {
-				case 0:
-					toExtrato();
-					finish();
-					break;
-
-				default:
-					break;
-				}
+				toExtrato();
+				finish();
 			}
 		};
 		return handler;
@@ -50,6 +42,4 @@ public class MainActivity extends Activity {
 		Intent i = new Intent(this, ExtratoActivity.class);
 		startActivity(i);
 	}
-	
-	
 }

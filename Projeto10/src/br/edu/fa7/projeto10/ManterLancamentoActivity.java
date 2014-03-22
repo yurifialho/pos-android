@@ -19,8 +19,8 @@ public class ManterLancamentoActivity extends Activity implements OnClickListene
 	private RadioButton rdDespesa;
 	private Button btSalvar;
 	
-	private Boolean isEdit = false;
-	private int index = 0;
+	private int index = -1;
+	private Lancamento l; 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +36,15 @@ public class ManterLancamentoActivity extends Activity implements OnClickListene
 		rdDespesa = (RadioButton) findViewById(R.id.rdDespesa);
 		
 		Intent i = getIntent();
-			isEdit = i.getStringExtra("op").equals("edit");
+			index = i.getIntExtra("index", -1);
 		
-		if(isEdit) {
-			txDescricao.setText(i.getStringExtra("descricao"));
-			txValor.setText(i.getStringExtra("valor").toString());
-			index = getIntent().getIntExtra("index",0);
-			if(i.getStringExtra("tipo").equals("1")) {
+		if(index > -1) {
+			l = (Lancamento) i.getSerializableExtra("lancamento");
+			txDescricao.setText(l.getTipoLancamento());
+			txValor.setText(l.getValue().toString());
+			if(l.getIsReceita()) {
 				rdReceita.setChecked(true);
-				rdDespesa.setChecked(false);
 			} else {
-				rdReceita.setChecked(false);
 				rdDespesa.setChecked(true);
 			}
 		}
@@ -66,23 +64,26 @@ public class ManterLancamentoActivity extends Activity implements OnClickListene
 		case R.id.btSalvar:
 			String valor = txValor.getText().toString();
 			String descricao = txDescricao.getText().toString();
+			Boolean isReceita = rdReceita.isChecked();
 			
 			if(valor == null || valor.trim().equals("") || descricao == null || descricao.trim().equals("")) {
 				Toast.makeText(this, "Os campos são obrigatórios", Toast.LENGTH_LONG).show();
 			} else {
-			
-				Intent i = new Intent();
-					i.putExtra("op", isEdit ? "edit" : "add");
-					if(isEdit) {
-						i.putExtra("index", this.index);
-					}
-					i.putExtra("valor", valor);
-					i.putExtra("descricao", descricao);
-				if(rdReceita.isChecked()) {
-					i.putExtra("tipo", "1");
+				if(l == null) {
+					l = new Lancamento(new Double(valor), isReceita, descricao);
+					Long id = new LancamentoDB(this).insert(l);
+					l.setId(id);
 				} else {
-					i.putExtra("tipo", "2");
+					l.setValue(new Double(valor));
+					l.setIsReceita(isReceita);
+					l.setTipoLancamento(descricao);
+					new LancamentoDB(this).update(l);
 				}
+				
+				Intent i = new Intent();
+					i.putExtra("lancamento", l);
+					i.putExtra("index", this.index);
+					
 				setResult(RESULT_OK, i);
 				finish();
 			}
