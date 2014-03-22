@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;arg0&apos; in &apos;br.edu.fa7.projeto01.MainActivity.onClick(...)&apos; to &apos;view&apos;&#x0A;- Original project: &apos;Projeto01&apos;&#x0A;- Original element: &apos;br.edu.fa7.projeto01.MainActivity.onClick(View).arg0&apos;&#x0A;- Renamed element: &apos;arg0&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;arg0&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;br.edu.fa7.projeto01{MainActivity.java[MainActivity~onClick~QView;@arg0!899!907!904!907!QView;!0!true" name="view" references="true" stamp="1393046598248" version="1.0"/>
+</session>

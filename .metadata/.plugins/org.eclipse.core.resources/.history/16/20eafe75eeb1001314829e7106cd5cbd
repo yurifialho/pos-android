@@ -1,0 +1,31 @@
+package br.edu.fa7.projeto10;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class LancamentoDB extends SQLiteOpenHelper{
+	
+	private String createTable = "CREATE TABLE lancamentos ( "
+			+ " _id INTEGER PRIMARY KEY AUTOINCREMENT, "
+			+ " valor DOUBLE NOT NULL, "
+			+ " is_receita BOOLEAN, "
+			+ " descricao VARCHAR "
+			+ ")";
+	
+	private final static String NOME_BANCO = "cash_manager";
+	
+	public LancamentoDB(Context context, String name, CursorFactory factory,
+			int version) {
+		super(context, name, factory, version);
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	}
+}

@@ -1,0 +1,38 @@
+package br.edu.fa7.projeto10;
+
+public class Lancamento {
+	
+	private String tipoLancamento;
+	
+
+	private Double value;
+	private Boolean isReceita;
+	
+	public Lancamento(Double value, Boolean isReceita) {
+		this.value = value;
+		this.isReceita = isReceita;
+	}
+
+	public Double getValue() {
+		return value;
+	}
+
+	public void setValue(Double value) {
+		this.value = value;
+	}
+
+	public Boolean getIsReceita() {
+		return isReceita;
+	}
+
+	public void setIsReceita(Boolean isReceita) {
+		this.isReceita = isReceita;
+	}
+	public String getTipoLancamento() {
+		return tipoLancamento;
+	}
+
+	public void setTipoLancamento(String tipoLancamento) {
+		this.tipoLancamento = tipoLancamento;
+	}
+}

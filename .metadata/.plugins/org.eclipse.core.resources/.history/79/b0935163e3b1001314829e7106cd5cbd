@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/lbExtrato"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/extrato"
+        android:textSize="30sp" />
+    
+	<ListView 
+	    android:id="@+id/extratoview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:dividerHeight="2dp"/>
+
+		<TextView android:id="@+id/saldo"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="bottom|right"
+	    android:textStyle="bold"
+	    android:text="Saldo: R$ 00,00"/>
+		
+</LinearLayout>

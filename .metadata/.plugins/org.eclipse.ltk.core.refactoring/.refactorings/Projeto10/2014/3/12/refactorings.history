@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;br.edu.fa7.projeto10.LancamentoDB&apos; to &apos;SQLHelper&apos;&#x0A;- Original project: &apos;Projeto10&apos;&#x0A;- Original element: &apos;br.edu.fa7.projeto10.LancamentoDB&apos;&#x0A;- Renamed element: &apos;br.edu.fa7.projeto10.SQLHelper&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;LancamentoDB&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;br.edu.fa7.projeto10{LancamentoDB.java[LancamentoDB" matchStrategy="1" name="SQLHelper" qualified="false" references="true" similarDeclarations="false" stamp="1395512818431" textual="false" version="1.0"/>
+</session>

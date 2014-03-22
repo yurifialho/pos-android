@@ -1,0 +1,30 @@
+package br.edu.fa7.projeto10;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+
+public class ManterLancamentoActivity extends Activity {
+	
+	private EditText txValor;
+	private RadioButton rdReceita;
+	private RadioButton rdDespesa;
+	private Button btSalvar;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_manter_lancamento);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.manter_lancamento, menu);
+		return true;
+	}
+
+}

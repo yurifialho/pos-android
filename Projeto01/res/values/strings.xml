@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Projeto01</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="first_activity">Minha primeira activity!</string>
+    <string name="bt_label1">Activity1</string>
+    <string name="bt_label2">Activity2</string>
+    <string name="tv_Hint">Digite alguma coisa aqui</string>
+
+</resources>
+

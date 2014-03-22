@@ -1,0 +1,28 @@
+package br.edu.fa7.projeto10;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+public class LancamentoDB {
+	private String createTable = "CREATE TABLE lancamentos ( "
+			+ " _id INTEGER PRIMARY KEY AUTOINCREMENT, "
+			+ " valor DOUBLE NOT NULL, "
+			+ " is_receita BOOLEAN, "
+			+ " descricao VARCHAR "
+			+ ")";
+	
+	private final static String NOME_BANCO = "cash_manager";
+	private final static int VERSAO_BANCO = 1;
+	private final static String NOME_TABELA = "lancamentos";
+	
+	private SQLHelper sqlHelper;
+	private Context context;
+	private SQLiteDatabase db;
+	
+	public LancamentoDB(Context context) {
+		this.context = context;
+		
+		sqlHelper = new SQLHelper(context, NOME_BANCO, 1, createTable);
+		db = sqlHelper.getWritableDatabase();
+	}
+}

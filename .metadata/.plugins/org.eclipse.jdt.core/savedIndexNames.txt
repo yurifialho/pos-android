@@ -1,0 +1,21 @@
+INDEX VERSION 1.126+/Users/ios/workspace/yuri/.metadata/.plugins/org.eclipse.jdt.core
+1752331538.index
+4110406424.index
+1671879644.index
+3333337264.index
+2214126478.index
+2580122268.index
+192261174.index
+2224367511.index
+2445333089.index
+885569805.index
+1844871842.index
+4086437633.index
+1788561083.index
+10552056.index
+1473208361.index
+338311686.index
+4073130821.index
+2701851156.index
+496793133.index
+1663896208.index

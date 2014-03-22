@@ -1,0 +1,41 @@
+package br.edu.fa7.projeto10;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+public class ExtratoAdpter extends BaseAdapter{
+	
+	private Context ctx;
+	private List<Lancamento> lancamentos;
+	
+	public ExtratoAdpter(Context ctx, List<Lancamento> lancamentos) {
+		this.ctx = ctx;
+		this.lancamentos = lancamentos;
+	}
+	
+	@Override
+	public int getCount() {
+		return this.lancamentos.size();
+	}
+
+	@Override
+	public Object getItem(int pos) {
+		return this.lancamentos.get(pos);
+	}
+
+	@Override
+	public long getItemId(int id) {
+		return this.lancamentos.indexOf(this.lancamentos.get(id));
+	}
+
+	@Override
+	public View getView(int pos, View convert, ViewGroup parent) {
+		Lancamento lancamento = this.lancamentos.get(pos);
+		return null;
+	}
+
+}

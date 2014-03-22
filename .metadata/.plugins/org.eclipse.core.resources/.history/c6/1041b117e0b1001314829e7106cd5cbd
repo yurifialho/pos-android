@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lbValor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/valor" />
+
+    <EditText
+        android:id="@+id/txValor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+    
+		<RadioGroup 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+        	<RadioButton
+            android:id="@+id/rdReceita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Receita" />
+
+        <RadioButton
+            android:id="@+id/rdDespesa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Despesa" />
+        </RadioGroup>
+	
+	<Button android:id="@+id/btSalvar"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Salvar"/>
+</LinearLayout>
