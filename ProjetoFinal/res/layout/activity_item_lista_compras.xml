@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="@string/hello_world" />
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <TextView 
+            android:id="@+id/lbItem"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="Item"/>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            
+            <TextView 
+                android:id="@+id/txQuantidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Qtd.: 10  "
+                android:gravity="left"/>
+            
+            <TextView 
+                android:id="@+id/txVlrUnitario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  VU.: R$: 10  "
+                android:gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/txVlrTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  VT.: R$: 100  " 
+                android:gravity="right"/>
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

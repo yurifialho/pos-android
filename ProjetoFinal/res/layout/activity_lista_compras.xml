@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView 
+	    android:id="@+id/listViewCompras"
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    android:dividerHeight="2dp"
+	    android:footerDividersEnabled="true"
+	    />
+
+    <Button
+        android:id="@+id/btAdd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adicionar" />
+
+    <TextView
+        android:id="@+id/txSubtotal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="R$ 00,00"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</LinearLayout>

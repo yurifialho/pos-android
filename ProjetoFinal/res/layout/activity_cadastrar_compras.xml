@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <RadioGroup
+        android:id="@+id/rdGrpTipo" 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        
+    <RadioButton
+        android:id="@+id/rdMelao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Melão"  />
+
+    <RadioButton
+        android:id="@+id/rdLaranja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Laranja" />
+
+    <RadioButton
+        android:id="@+id/rdMorango"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Morango" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/lbQtd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Quantidade" />
+
+    <EditText
+        android:id="@+id/txQtd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" 
+        android:text="0">
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/lbVlrUnit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Preço Unitário" />
+
+    <EditText
+        android:id="@+id/txVlrUnit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" 
+        android:text="0.0"/>
+
+    <TextView
+        android:id="@+id/lbTotal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Total" />
+
+    <EditText
+        android:id="@+id/txTotal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:enabled="false" />
+
+    <Button
+        android:id="@+id/btSalvar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar" />
+
+</LinearLayout>

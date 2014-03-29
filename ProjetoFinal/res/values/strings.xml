@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ProjetoFinal</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_lista_compras">ListaComprasActivity</string>
+    <string name="carregando">Carregando...</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="title_activity_cadastrar_compras">CadastrarComprasActivity</string>
+
+</resources>
