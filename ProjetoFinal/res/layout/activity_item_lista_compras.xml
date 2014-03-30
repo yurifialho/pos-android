@@ -16,17 +16,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         
-        <TextView 
+        <TextView
             android:id="@+id/lbItem"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:text="Item"/>
+            android:text="Item"
+            android:textStyle="bold" />
         
-        <LinearLayout
+        <GridLayout 
+            android:columnCount="3" 
+            android:rowCount="1"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-            
+			
             <TextView 
                 android:id="@+id/txQuantidade"
                 android:layout_width="wrap_content"
@@ -47,8 +50,8 @@
                 android:layout_height="wrap_content"
                 android:text="  VT.: R$: 100  " 
                 android:gravity="right"/>
-            
-        </LinearLayout>
+        </GridLayout>
+        
         
     </LinearLayout>
 

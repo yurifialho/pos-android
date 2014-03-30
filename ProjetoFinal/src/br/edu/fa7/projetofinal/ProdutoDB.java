@@ -12,12 +12,12 @@ public class ProdutoDB {
 	
 	private String createTable = " CREATE TABLE produtos ( "
 			+ " _id INTEGER PRIMARY KEY AUTOINCREMENT,     "
-			+ " tipo INTEGER NOT NULL,                     "
+			+ " descricao VARCHAR NOT NULL,                "
 			+ " qtd  INTEGER NOT NULL,                     "
 			+ " valor DOUBLE NOT NULL);                    ";
 	
 	private final static String NOME_BANCO = "projeto_final";
-	private final static int VERSAO_DB = 1;
+	private final static int VERSAO_DB = 2;
 	private final static String NOME_TABELA = "produtos";
 	
 	private SQLHelper helper;
@@ -33,7 +33,7 @@ public class ProdutoDB {
 	
 	public Long insert(Produto produto) {
 		ContentValues contents = new ContentValues();
-			contents.put("tipo",  produto.getTipo());
+			contents.put("descricao",  produto.getDescricao());
 			contents.put("qtd",   produto.getQuantidade());
 			contents.put("valor", produto.getValorUnitario());
 		
@@ -42,7 +42,7 @@ public class ProdutoDB {
 	
 	public void update(Produto produto) {
 		ContentValues contents = new ContentValues();
-			contents.put("tipo",  produto.getTipo());
+			contents.put("descricao",  produto.getDescricao());
 			contents.put("qtd",   produto.getQuantidade());
 			contents.put("valor", produto.getValorUnitario());
 			
@@ -54,7 +54,7 @@ public class ProdutoDB {
 	}
 	
 	public List<Produto> findAll() {
-		Cursor c = db.query(NOME_TABELA, null, null, null, null, null, "_id");
+		Cursor c = db.query(NOME_TABELA, null, null, null, null, null, "descricao");
 		
 		List<Produto> produtos = new ArrayList<Produto>();
 		
@@ -63,11 +63,11 @@ public class ProdutoDB {
 			
 			while(!c.isAfterLast()) {
 				Integer id   = c.getInt(c.getColumnIndex("_id"));
-				Integer tipo = c.getInt(c.getColumnIndex("tipo"));
+				String descricao = c.getString(c.getColumnIndex("descricao"));
 				Integer qtd  = c.getInt(c.getColumnIndex("qtd"));
 				Double valor = c.getDouble(c.getColumnIndex("valor"));
 				
-				Produto p = new Produto(id, tipo, qtd, valor);
+				Produto p = new Produto(id, descricao, qtd, valor);
 				produtos.add(p);
 				c.moveToNext();
 			}
@@ -83,11 +83,11 @@ public class ProdutoDB {
 			c.moveToFirst();
 			
 			Integer codId   = c.getInt(c.getColumnIndex("_id"));
-			Integer tipo = c.getInt(c.getColumnIndex("tipo"));
+			String descricao = c.getString(c.getColumnIndex("descricao"));
 			Integer qtd  = c.getInt(c.getColumnIndex("qtd"));
 			Double valor = c.getDouble(c.getColumnIndex("valor"));
 			
-			return new Produto(codId, tipo, qtd, valor);
+			return new Produto(codId, descricao, qtd, valor);
 		}
 		
 		return null;

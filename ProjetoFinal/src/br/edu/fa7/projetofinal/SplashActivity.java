@@ -19,7 +19,7 @@ public class SplashActivity extends Activity {
 			Intent intent = new Intent(SplashActivity.this, ListaComprasActivity.class);
 			startActivity(intent);
 			
-			getActionBar().removeAllTabs();
+			finish();
 		}
 	};
 	
@@ -29,6 +29,8 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.activity_splash);
 		
 		this.handler.sendEmptyMessageDelayed(0, TimeUnit.SECONDS.toMillis(5));
+		
+		getActionBar().hide();
 	}
 
 	@Override

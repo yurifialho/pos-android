@@ -47,7 +47,7 @@ public class ListaComprasAdapter extends BaseAdapter{
 			pTemp = new ProdutoTemp();
 			
 			pTemp.imgIcon = (ImageView) convertView.findViewById(R.id.imgLogo);
-			pTemp.imgIcon.setImageResource(R.drawable.ic_launcher);
+			pTemp.imgIcon.setImageResource(R.drawable.no_image);
 			
 			pTemp.txDescricao = (TextView) convertView.findViewById(R.id.lbItem);
 			pTemp.txDescricao.setText("");
@@ -66,28 +66,14 @@ public class ListaComprasAdapter extends BaseAdapter{
 			pTemp = (ProdutoTemp) convertView.getTag();
 		}
 		
-		pTemp.txDescricao.setText(getDescricao(produto.getTipo()));
+		pTemp.txDescricao.setText(produto.getDescricao());
 		pTemp.txQuantidade.setText("  Qtd.: "+produto.getQuantidade()+"  ");
-		pTemp.txtValorUnitario.setText("  VU.: R$: "+produto.getValorUnitario()+"  ");
-		pTemp.txtValorTotal.setText("  VT.: R$: "+(produto.getQuantidade() * produto.getValorUnitario())+"  ");
-		
+		pTemp.txtValorUnitario.setText("  VU.: R$: "+String.format("%.2f",produto.getValorUnitario())+"  ");
+		pTemp.txtValorTotal.setText("  VT.: R$: "+String.format("%.2f",(produto.getQuantidade() * produto.getValorUnitario()))+"  ");
+
 		return convertView;
 	}
 	
-	
-	private String getDescricao(Integer tipo) {
-		switch (tipo) {
-		case 0:
-			return "Mel‹o";
-		case 1:
-			return "Morango";
-		case 2: 
-			return "Laranja";
-		}
-		return "";
-	}
-
-
 	static class ProdutoTemp {
 		ImageView imgIcon;
 		TextView txDescricao;

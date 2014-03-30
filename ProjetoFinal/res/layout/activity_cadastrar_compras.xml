@@ -4,38 +4,27 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
-    <RadioGroup
-        android:id="@+id/rdGrpTipo" 
+    <TextView
+        android:id="@+id/lbDescricao"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:text="Nome Produto" />
+
+    <EditText
+        android:id="@+id/txDescricao"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textCapCharacters" 
+        android:text="">
+        <requestFocus />
         
-    <RadioButton
-        android:id="@+id/rdMelao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Melão"  />
-
-    <RadioButton
-        android:id="@+id/rdLaranja"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Laranja" />
-
-    <RadioButton
-        android:id="@+id/rdMorango"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Morango" />
-    </RadioGroup>
+        </EditText>
 
     <TextView
         android:id="@+id/lbQtd"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:text="Quantidade" />
 
     <EditText
@@ -45,8 +34,6 @@
         android:ems="10"
         android:inputType="number" 
         android:text="0">
-
-        <requestFocus />
     </EditText>
 
     <TextView
@@ -67,7 +54,7 @@
         android:id="@+id/lbTotal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Total" />
+        android:text="Valor Total" />
 
     <EditText
         android:id="@+id/txTotal"

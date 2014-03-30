@@ -7,17 +7,21 @@ public class Produto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
-	private Integer tipo;
+	private String descricao;
 	private Integer quantidade;
 	private Double valorUnitario;
 	
-	public Produto(Integer id, Integer tipo, Integer quantidade, Double valor) {
-		this(tipo, quantidade, valor);
+	public Produto() {
+		
+	}
+	
+	public Produto(Integer id, String descricao, Integer quantidade, Double valor) {
+		this(descricao, quantidade, valor);
 		this.id = id;
 	}
 	
-	public Produto(Integer tipo, Integer quantidade, Double valor) {
-		this.tipo          = tipo;
+	public Produto(String descricao, Integer quantidade, Double valor) {
+		this.descricao     = descricao;
 		this.quantidade    = quantidade;
 		this.valorUnitario = valor;
 	}
@@ -30,11 +34,11 @@ public class Produto implements Serializable{
 		this.id = id;
 	}
 
-	public Integer getTipo() {
-		return tipo;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	public Integer getQuantidade() {
 		return quantidade;
@@ -48,6 +52,4 @@ public class Produto implements Serializable{
 	public void setValorUnitario(Double valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
-	
-	
 }
